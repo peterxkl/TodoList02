@@ -1,15 +1,27 @@
 <template>
-    <div id="top">
-        <h2>Jquery To Do List</h2>
-        <h4>Simple Todo List with adding and filter by fiff status</h4>
-        <input type="text" v-model="inputValue" @keyup.enter="add"><button @click="add">Add</button>
-    </div>
+  <div id="top">
+    <h2>Jquery To Do List</h2>
+    <h4>Simple Todo List with adding and filter by fiff status</h4>
+    <input type="text" v-model="inputvalue" @keyup.enter="add"><button @click="add">Add</button>
+  </div>
 </template>
 
 <script>
-    import '../assets/index.css';
+    //import store from '../store.js'
+    import '../assets/index.css'
     export default {
-        name: "TodoListTop"
+        name: "TodoListTop",
+        data () {
+            return {
+              inputvalue: ''
+            }
+        },
+        methods: {
+            add(){
+                this.$store.commit("add", this.inputvalue);
+                this.inputvalue='';
+            },
+        },
     }
 </script>
 
