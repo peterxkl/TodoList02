@@ -13,12 +13,13 @@
     import '../assets/index.css';
     import top from './TodoListTop.vue';
     import medium from './TodoListMedium.vue';
-    //import buttom from './TodoListButtom.vue';
+    import buttom from './TodoListButtom.vue';
     export default {
         name: "body",
         components: {
             top,
             medium,
+            buttom,
         },
     }
 </script>
