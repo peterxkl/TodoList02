@@ -1,0 +1,61 @@
+#body{
+    width: 800px;
+    height: 800px;
+    margin: 100px auto;
+    background-color: rgb(204,204,204);
+    padding: 10px 50px 10px 50px;
+    border-radius: 4px;
+}
+#main{
+    width: 800px;
+    background-color: rgb(255,255,255);
+    height: 780px;
+    border-radius: 4px;
+    padding: 15px;
+}
+#top h2{
+    font-size: 35px;
+}
+#top h4{
+    font-size: 25px;
+}
+#top input{
+    width: 600px;
+    height:40px;
+    border: 1px solid rgb(204,204,204);
+    text-indent:8px;
+}
+#top button{
+    width: 85px;
+    height: 44px;
+    background-color: red;
+    color: rgb(252,153,154);
+    border: 1px solid rgb(255,255,255);
+    border-radius: 6px;
+    margin-left: 6px;
+}
+#medium{
+    margin-top: 50px;
+    font-size: 25px;
+
+}
+#medium li .finish{
+    text-decoration: line-through;
+    opacity: .5;
+}
+#buttom{
+    text-align: center;
+    margin-top: 80px;
+
+}
+#buttom a{
+    color: rgb(252,153,154);
+    margin-left: 20px;
+    font-size: 30px;
+    text-decoration:none;
+    width: 190px;
+    height: 50px;
+}
+#buttom a.active{
+    border: 1px solid red;
+}
