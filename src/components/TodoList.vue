@@ -22,6 +22,9 @@
             medium,
             buttom,
         },
+        mounted:function(){
+            this.$store.dispatch('getTodoList')
+        },
     }
 </script>
 

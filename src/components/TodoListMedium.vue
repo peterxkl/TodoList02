@@ -25,6 +25,7 @@
             },
             unEdit(obj) { //使添加的todothing不可编辑
                 obj.isEditing = false
+                this.$store.dispatch('updateTodo1',obj)
             },
             updateTodo(todo){
                 this.$store.dispatch('updateTodo',todo)

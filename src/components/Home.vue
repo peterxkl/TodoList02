@@ -10,8 +10,8 @@
                 <a class="second" @click="changeItem">我的</a>
             </div>
             <div id="medium-right">
-                <!-- <me v-show="choseItem"  /> -->
-                <todolist  />
+                <me v-show="choseItem"  />
+                <todolist v-show="!choseItem" />
             </div>
         </div>
     </div>

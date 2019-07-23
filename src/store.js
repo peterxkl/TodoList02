@@ -75,7 +75,13 @@ const action = {
                    console.log(response);
                    commit("deleteitem",todo)
                 })
-    }
+    },
+    updateTodo1({commit},todo){
+        axios.put(`http://localhost:3001/todos/${todo.id}`,todo)
+               .then(response => {
+                   console.log(response);
+                })
+    },
 }
 
 const store = new Vuex.Store({
