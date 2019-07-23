@@ -28,6 +28,13 @@ const mutations = {
      },
      addTodoList(state,items){
          state.list.push(...items);
+     },
+     deleteitem(state,item){
+         for(let i=0;i<state.list.length;i++){
+             if(state.list[i].id===item.id){
+                 state.list.splice(i,1);
+             }
+         }
      }
 
 }
@@ -66,7 +73,7 @@ const action = {
         axios.delete(`http://localhost:3001/todos/${todo.id}`,todo)
                .then(response => {
                    console.log(response);
-                   
+                   commit("deleteitem",todo)
                 })
     }
 }

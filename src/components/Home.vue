@@ -6,11 +6,12 @@
         </div>
         <div id="medium1">
             <div id="medium-left">
-                <a href="" class="first">TodoList列表</a>
-                <a href="" class="second">我的</a>
+                <a class="first" @click="changeItem">TodoList列表</a>
+                <a class="second" @click="changeItem">我的</a>
             </div>
             <div id="medium-right">
-                <todolist/>
+                <!-- <me v-show="choseItem"  /> -->
+                <todolist  />
             </div>
         </div>
     </div>
@@ -18,14 +19,22 @@
 
 <script>
 import todolist from './TodoList.vue'
+import me from './Me.vue'
+import axios from 'axios'
 export default {
+        data(){
+            return{
+               choseItem:false
+            }
+        },
         components: {
-            todolist
+            todolist,
+            me
         },
         computed:{
            username(){
                return this.$route.params.userName;
-           }
+           },
         },
         methods: {
             returnBack(){
@@ -36,6 +45,9 @@ export default {
                     //alert("What a bitch you are !");  
                 }  
             },
+            changeItem(){
+                this.choseItem=!this.choseItem
+            }
         },
 }
 </script>
