@@ -1,8 +1,6 @@
 <template>
     <div id="body">
         <div id="main">
-            <button @click="returnBack">返回</button>
-            <span>{{username}}</span>
             <top/>
             <medium/>
             <buttom/>
@@ -23,24 +21,6 @@
             top,
             medium,
             buttom,
-        },
-        computed:{
-           username(){
-               return this.$route.params.userName;
-           }
-        },
-        mounted:function(){
-            this.$store.dispatch("getTodoList")
-        },
-        methods: {
-            returnBack(){
-                var result = confirm("Please make sure.");  
-                if (result == true) {  
-                      this.$router.go(-1);
-                } else {  
-                    //alert("What a bitch you are !");  
-                }  
-            },
         },
     }
 </script>

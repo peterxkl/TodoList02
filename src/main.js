@@ -4,6 +4,8 @@ import store from './store.js'
 import VueRouter from 'vue-router'
 import Welcome from './components/Welcome'
 import TodoList from './components/TodoList'
+import Home from './components/Home'
+
 
 
 Vue.config.productionTip = false
@@ -13,7 +15,7 @@ const routes = [
   { path: '/', component: Welcome },
   {
      path: '/Todo', 
-     component: TodoList,
+     component: Home,
      name:'Todo' ,
   },
 
