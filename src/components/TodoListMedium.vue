@@ -2,12 +2,13 @@
     <div id="medium">
         <ol>
             <li v-for="todo in this.$store.state.list" :key="todo" v-show="defultshow||(whichshow?todo.finished:!todo.finished)">
-                <input type="checkbox" style="zoom:150%" v-model="todo.finished">
+                <input type="checkbox" style="zoom:150%" v-model="todo.finished" @click="updateTodo(todo)">
                 <span :class="{finish: todo.finished}" @dblclick="toEdit(todo)" v-show="!todo.isEditing">
                      {{todo.text}}
                 </span>
                 <input type="text" v-model="todo.text" v-show="todo.isEditing" 
                        v-todo-focus="todo.text" @blur="unEdit(todo)">  
+                <input type="button" value="删除" @click="deleteitem(todo)">
             </li>
         </ol>
     </div>
@@ -25,6 +26,12 @@
             unEdit(obj) { //使添加的todothing不可编辑
                 obj.isEditing = false
             },
+            updateTodo(todo){
+                this.$store.dispatch('updateTodo',todo)
+            },
+            deleteitem(todo){
+                this.$store.dispatch('deleteitem',todo)
+            }
         },
         computed: {
             defultshow(){

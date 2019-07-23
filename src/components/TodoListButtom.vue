@@ -20,7 +20,8 @@
         },
       methods: {
         switchStatus(index) { 
-          this.$store.commit("switchStatus", index);
+          this.$store.dispatch('switchStatus',index)
+          // this.$store.commit("switchStatus", index);
         },
     },
   }

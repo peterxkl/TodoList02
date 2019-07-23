@@ -7,8 +7,6 @@ const state = {
     list:[
         
     ],
-    title:'Jquery To Do List',
-    subtitle:'Simple Todo List with adding and filter by fiff status',
     dataStatus:["All","Active","Complete"],
     dataStatusIndex: 0,
     whichshow:true,
@@ -54,6 +52,23 @@ const action = {
                    commit("addTodoList",[response.data])
                 })
     },
+    switchStatus({commit},index){
+       commit("switchStatus",index);
+    },
+    updateTodo({commit},todo){
+        todo.finished=!todo.finished
+        axios.put(`http://localhost:3001/todos/${todo.id}`,todo)
+               .then(response => {
+                   console.log(response);
+                })
+    },
+    deleteitem({commit},todo){
+        axios.delete(`http://localhost:3001/todos/${todo.id}`,todo)
+               .then(response => {
+                   console.log(response);
+                   
+                })
+    }
 }
 
 const store = new Vuex.Store({
