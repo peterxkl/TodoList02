@@ -1,12 +1,14 @@
-import Vue from 'vue'
+import Vue from 'vue';
 import Vuex from 'vuex';
-
-Vue.use(Vuex)
+import axios from 'axios';
+Vue.use(Vuex);
 
 const state = {
     list:[
         
     ],
+    title:'Jquery To Do List',
+    subtitle:'Simple Todo List with adding and filter by fiff status',
     dataStatus:["All","Active","Complete"],
     dataStatusIndex: 0,
     whichshow:true,
@@ -14,9 +16,6 @@ const state = {
 }
 
 const mutations = {
-    add(state,inputValue1){
-        state.list.push({text:inputValue1,finished:false,isEditing:false});
-    },
     switchStatus(state,index) { 
         state.dataStatusIndex = index
         if (state.dataStatus[index] === "Active") {
@@ -29,12 +28,38 @@ const mutations = {
             state.defultshow = true
         }
      },
+     addTodoList(state,items){
+         state.list.push(...items);
+     }
 
+}
+
+const action = {
+    //要使用axios.put()更新方法
+    // switchStatus({commit},index){
+    //     state.dataStatusIndex = index
+    // },
+    getTodoList({commit}){
+        axios.get('http://localhost:3001/todos')
+               .then(response => {
+                   console.log(response);
+                   commit("addTodoList",response.data)
+                })
+    },
+    addTodoList({commit},inputValue1){
+        let item={id:state.list.id+1,text:inputValue1,finished:false,isEditing:false}
+        axios.post('http://localhost:3001/todos',item)
+               .then(response => {
+                   console.log(response);
+                   commit("addTodoList",[response.data])
+                })
+    },
 }
 
 const store = new Vuex.Store({
     state: state,
-    mutations: mutations
+    mutations: mutations,
+    actions: action
 })
 
 export default store;

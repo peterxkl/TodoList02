@@ -9,6 +9,8 @@
 <script>
     //import store from '../store.js'
     import '../assets/index.css'
+    import title from './TodoTitle.vue'
+    import axios from 'axios'
     export default {
         name: "TodoListTop",
         data () {
@@ -16,10 +18,13 @@
               inputvalue: ''
             }
         },
+        components: {
+            // title
+        },
         methods: {
             add(){
-                this.$store.commit("add", this.inputvalue);
-                this.inputvalue='';
+              this.$store.dispatch('addTodoList',this.inputvalue)
+              this.inputvalue='';
             },
         },
     }
